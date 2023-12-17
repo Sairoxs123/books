@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            height: 100%;
+        }
+
+        *{
+            color: white;
+        }
+
+        header{
+            width: 100%;
+            border-bottom: 2px solid white;
+        }
+
+        #messages{
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 80%;
+            position: fixed;
+            width: 99%;
+        }
+
+        #sendmessage{
+            position: fixed;
+            bottom: 0;
+            height: 5%;
+            margin-bottom: 1.5%;
+            width: 100%;
+        }
+
+        input[type=text]{
+            width: 90%;
+            padding: 0.5%;
+            background-color: inherit;
+            border: 2px solid white;
+            border-radius: 22px;
+        }
+
+        .left{
+            margin-top: 0.5%;
+            display: flex;
+        }
+
+        .right{
+            display: flex;
+            justify-content: right;
+            margin-right: 2%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+
+        #messages .right span{
+            background-color: rgb(55, 151, 240);
+            padding: 1%;
+            width: auto;
+            max-width: 650px;
+            border-bottom-left-radius: 18px;
+            border-top-left-radius: 18px;
+            overflow-wrap: break-word;
+            border-top-right-radius: 18px;
+            word-break: break-word;
+            font-size: 1.5em;
+        }
+
+        #messages .left span{
+            display: flex;
+            background-color: rgb(38, 38, 38);
+            width: auto;
+            padding: 7px 12px;
+            border-bottom-right-radius: 18px;
+            border-top-left-radius: 18px;
+            overflow-wrap: break-word;
+            max-width: 650px;
+            border-top-right-radius: 18px;
+            word-break: break-word;
+            font-size: 1.5em;
+            margin-left: 1%;
+        }
+
+        #messages .left .name{
+            margin-left: 1%;
+        }
+
+        button{
+            background-color: rgb(55, 151, 240);
+            border: none;
+            padding: 0.5%;
+            font-size: 1.5em;
+            border-radius: 22px;
+            transition: 0.1s all ease;
+            cursor: pointer;
+        }
+
+        button:hover{
+            outline: 2px solid #888888;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Harry Potter and The Philospher's Stone</h1>
+    </header>
+    <main>
+        <div id="messages">
+            <div class="left">
+                <span>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero perferendis quas eveniet eos nisi natus doloremque sapiente itaque excepturi nihil quo autem, iure facilis mollitia animi repudiandae eum eligendi harum?
+                    Perspiciatis aliquam nulla porro illo? Excepturi rerum quod repudiandae praesentium vitae veniam eius ipsam, quasi at! Sint quisquam veniam quae blanditiis incidunt necessitatibus quasi rerum nesciunt earum aut, iste ad!
+                    Similique, necessitatibus in repudiandae aut fuga magnam, odio distinctio porro atque consectetur et modi! Ullam a illum laudantium eos ex iusto numquam, provident ad consectetur reiciendis laborum cumque officiis quas!
+                    Aperiam, reprehenderit vel libero officia nisi eveniet, error beatae, amet excepturi harum natus quae magnam fugit quia explicabo blanditiis est rem. Itaque, mollitia ipsam? Deleniti ut dolores esse dolorum distinctio!
+                    Maxime molestias minima quaerat libero aspernatur consectetur similique, veniam tempore aut quasi reprehenderit ex ipsa tenetur labore nam temporibus eaque laboriosam obcaecati voluptatum error? Laboriosam impedit dignissimos voluptatibus laborum consequuntur.
+                    <br><br>
+                    -Sai Teja
+                </span>
+            </div>
+            <div class="right">
+                <span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores doloremque voluptas eos ad nisi? Eligendi nisi magnam perferendis ullam corporis, culpa voluptatibus a sunt ea magni ab! Assumenda, hic unde.
+                    Est eligendi ea magni nobis sunt ut odit dolores consequuntur, aut reiciendis aperiam soluta, facilis, tempora tempore minus voluptatibus odio id. Exercitationem, veniam sequi. Beatae ipsam qui hic eum tempore?
+                    Voluptatibus eligendi blanditiis error ipsum beatae nobis esse nam, omnis excepturi numquam repellendus vero saepe soluta magni, minima tenetur. Dicta ratione, dolorem atque sunt explicabo aperiam quod architecto non totam?
+                    Atque aut consequuntur corporis recusandae nesciunt cupiditate libero, sequi eos repellat iusto quos repellendus quas, totam ea? Nostrum, quod, cum quibusdam reprehenderit in, excepturi sit consequuntur aliquam adipisci nemo sapiente.
+                    Pariatur sed unde blanditiis illum iure minus debitis vitae sint ad itaque repellat commodi quasi aperiam quas est quae, voluptas ipsa possimus et reiciendis inventore temporibus assumenda aut deleniti. Voluptates.
+                </span>
+            </div>
+            </div>
+        </div>
+        <div id="sendmessage">
+            <input type="text" placeholder="Send Message...">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button">Send</button>
+        </div>
+    </main>
+
+    <script>
+        function scroll(behavior){
+            let div = document.getElementById("messages");
+            if (behavior == "smooth"){
+                div.scrollTo({
+                    top: div.scrollHeight,
+                    behavior: 'smooth',
+                })
+            } else {
+                div.scrollTo({
+                    top: div.scrollHeight,
+                })
+            }
+        }
+
+        window.onload = scroll("no");
+
+    </script>
+
+
+</body>
+</html>

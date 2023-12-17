@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookGenie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/originals/67/18/22/671822c2f63dd5f65d8fd15c9710420b.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:black;
+            padding: 12px;
+        }
+
+        .navbar img {
+            height: 50px;
+            width:60px;
+
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 75vh;
+
+        }
+
+        .heading {
+            font-size: 64px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 24px;
+            color: white;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            padding: 18px;
+            margin-top: 50px;
+            font-size: 24px;
+            border: none;
+            border-radius: 25px;
+            background-color:rgba(255, 255, 255, 0.5);
+            color: white;
+            outline: none;
+background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://static.vecteezy.com/system/resources/previews/001/907/669/large_2x/light-yellow-brown-background-free-photo.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logoo.png" alt="logo">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1 class="heading">BookGenie</h1>
+        <h2 class="tagline">"We know all the good spots"</h2>
+        <input class="search-bar" type="text" placeholder="Search books...">
+    </div>
+</body>
+</html>
