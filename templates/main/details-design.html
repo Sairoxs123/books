@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Stores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.pinimg.com/originals/67/18/22/671822c2f63dd5f65d8fd15c9710420b.jpg');
+        }
+
+        #main {
+            height: 80%;
+            width: 80%;
+            position: absolute;
+            background-color: white;
+            display: flex;
+            box-shadow: 0px 0px 15px 15px #888888;
+        }
+
+        .image {
+            width: 40%;
+            height: 80%;
+        }
+
+        img {
+            margin-left: 7.5%;
+            margin-top: 12.5%;
+            width: 80%;
+            height: 100%;
+        }
+
+        .content {
+            width: 60%;
+            float: right;
+            background-color: yellow;
+        }
+
+        .author {
+            float: right;
+            margin-right: 2%;
+            margin-top: -4%;
+        }
+
+        .rating {
+            margin-top: 8%;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .description {
+            margin-top: 10%;
+            width: 90%;
+            text-align: justify;
+            margin-left: 5%;
+            font-size: 1.25em;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .fa .fa-star{
+            font-weight: bold;
+        }
+
+        .price, .location{
+            margin-left: 5%;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+            margin-top: 5%;
+        }
+
+
+        form:nth-child(2){
+            margin-left: 15%;
+        }
+
+        button{
+            background-color: aqua;
+            border: none;
+            font-weight: bold;
+            font-size: 2em;
+            border-radius: 22px;
+            padding: 10%;
+            transition: 500ms ease;
+        }
+
+        button:hover{
+            cursor: pointer;
+            box-shadow: 0px 0px 10px 10px #888888;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div class="image">
+            <img src="/media/books/chamber_of_secrets.jpg">
+        </div>
+        <div class="content">
+            <div class="title">
+                <center>
+                    <u>
+                        <h1>Harry Potter and the Chamber of Secrets</h1>
+                    </u>
+                </center>
+            </div>
+            <div class="author">
+                <h3>-J.K Rowling</h3>
+            </div>
+            <div class="description">
+                <h3>The story follows Harry's second year at Hogwarts School of Witchcraft and Wizardry, where the Heir
+                    of Salazar Slytherin opens the Chamber of Secrets, unleashing a monster that petrifies the school's
+                    students.
+                </h3>
+            </div>
+            <div class="rating" id="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <div class="price">
+                <h2>
+                    Price : AED 24.00
+                </h2>
+            </div>
+            <div class="location">
+                <h2>
+                    DC Books - 2B St - Al Karama - Dubai
+                </h2>
+            </div>
+
+            <div class="buttons">
+                <form action="" method="post">
+                    <button>Reserve</button>
+                </form>
+
+                <form action="" method="post">
+                    <button>Wishlist</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

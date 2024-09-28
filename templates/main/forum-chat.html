@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            height: 100%;
+        }
+
+        * {
+            color: white;
+        }
+
+        header {
+            width: 100%;
+            border-bottom: 2px solid white;
+        }
+
+        #messages {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 80%;
+            position: fixed;
+            width: 99%;
+        }
+
+        #sendmessage {
+            position: fixed;
+            bottom: 0;
+            height: 5%;
+            margin-bottom: 1.5%;
+            width: 100%;
+        }
+
+        input[type=text] {
+            width: 90%;
+            padding: 0.5%;
+            background-color: inherit;
+            border: 2px solid white;
+            border-radius: 22px;
+        }
+
+        .left {
+            display: flex;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            margin-left: 1%;
+        }
+
+        .right {
+            display: flex;
+            justify-content: right;
+            margin-right: 2%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+
+        #messages .right span {
+            background-color: rgb(55, 151, 240);
+            padding: 1%;
+            width: auto;
+            max-width: 650px;
+            border-bottom-left-radius: 18px;
+            border-top-left-radius: 18px;
+            overflow-wrap: break-word;
+            border-top-right-radius: 18px;
+            word-break: break-word;
+            font-size: 1.5em;
+        }
+
+        #messages .left span {
+            background-color: rgb(38, 38, 38);
+            height: auto;
+            padding: 1%;
+            border-bottom-right-radius: 18px;
+            border-top-left-radius: 18px;
+            overflow-wrap: break-word;
+            max-width: 650px;
+            border-top-right-radius: 18px;
+            word-break: break-word;
+            font-size: 1.5em;
+        }
+
+        .message {
+            margin-top: 1%;
+            font-size: 1.5em;
+            margin-left: 1%;
+        }
+
+        button {
+            background-color: rgb(55, 151, 240);
+            border: none;
+            padding: 0.5%;
+            font-size: 1.5em;
+            border-radius: 22px;
+            transition: 0.1s all ease;
+            cursor: pointer;
+        }
+
+        button:hover {
+            outline: 2px solid #888888;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align: center;">
+            {{ name }}
+        </h1>
+    </header>
+    <main>
+        <div id="messages">
+
+        </div>
+        <div id="sendmessage">
+            <input type="text" placeholder="Send Message..." id="message">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" onclick="sendMessage()">Send</button>
+        </div>
+    </main>
+
+    <script>
+
+        function scroll() {
+            let div = document.getElementById("messages");
+            div.scrollTo({
+                top: div.scrollHeight,
+                behavior: 'smooth',
+            })
+        }
+
+        document.getElementById("message").onkeypress = (e) => {
+            if (e.keyCode === 13) {
+                sendMessage()
+            }
+        }
+
+        function sendMessage() {
+            let id = Number('{{ id }}');
+            let email = '{{ email }}';
+            let message = document.getElementById("message").value;
+
+            if (message == "") {
+                console.log("Empty");
+            } else {
+                $.ajax({
+                    url: '{% url "send" %}',
+                    type: "GET",
+                    contentType: "text/javascript",
+                    data: {
+                        sender: email, forum: id, message: message
+                    },
+                    success: (response) => { console.log(response.result) },
+                    error: (error) => { console.log(error) }
+                })
+                document.querySelector("input[type=text]").value = "";
+            }
+
+        }
+
+        let storage = [];
+
+        let counter = 1;
+
+
+        async function getmessage() {
+            let id = Number('{{ id }}');
+            const response = await fetch(`/fetch/${id}`);
+            let data = await response.text();
+            //console.log(data);
+            let messages = data.split("</div>");
+
+            let length = messages.length;
+
+            if (length != storage.length) {
+                document.getElementById("messages").innerHTML = "";
+                while (storage.length > 0){
+                    storage.pop();
+                }
+                counter = 1
+                for (let i = 0; i < length; i++) {
+                    storage.push(messages[i]);
+                }
+            }
+
+            if (counter == 1) {
+                for (let index = 0; index < storage.length; index++) {
+                    const element = storage[index];
+                    document.getElementById("messages").innerHTML += element;
+                }
+                scroll();
+                counter = 0;
+            }
+
+        }
+
+
+        window.onload = setInterval(getmessage, 1000);
+
+    </script>
+
+</body>
+
+</html>
